@@ -17,7 +17,7 @@ try:
 except:
     pass
 
-from model import Transformer
+from YoloGemma.model import Transformer
 
 ##### Quantization Primitives ######
 
