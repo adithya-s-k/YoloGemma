@@ -1,5 +1,3 @@
-### README.md
-
 # YoloGemma
 
 **YoloGemma** is an project showcasing the capabilities of Vision-Language models in performing computer vision tasks such as object detection and segmentation tasks. At the heart of this experiment lies [**PaliGemma**](https://huggingface.co/google/paligemma-3b-mix-224), a state-of-the-art model that bridges the gap between Language and Vision. Through YoloGemma, we aim to explore whether Vision-Language models can match but conventional methods of computer vision.
