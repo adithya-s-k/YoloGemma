@@ -26,7 +26,7 @@ To get started with YoloGemma, follow these simple installation steps:
 
 - **Model Download:** You can download the model by running the following command:
     ```bash
-    YoloGemma download
+    python download.py
     ```
     This command will download and quantize the model.
 
@@ -34,7 +34,7 @@ YoloGemma provides three main scripts to facilitate various tasks. Below are ins
 
 1. **Main Script for Object Detection and Segmentation:**
     ```bash
-    YoloGemma main --task "detect" --object "Cat" --input_path path/to/input --output_path path/to/output
+    python main.py --task "detect" --object "Cat" --input_path path/to/input --output_path path/to/output
     ```
     Parameters:
     - `--task`: Specify whether to `detect` or `segment`.
@@ -46,27 +46,17 @@ YoloGemma provides three main scripts to facilitate various tasks. Below are ins
 
 2. **Server Script to Run a Server:**
     ```bash
-    YoloGemma server --port 8080
+    python server.py --port 8080
     ```
     This command will start a server on port 8080, allowing you to send requests for object detection and segmentation.
 
-    (Note: Yet to be implemented)
-
+    
 3. **Gradio Interface:**
+    (Note: Yet to be implemented)
     ```bash
-    YoloGemma gradio
+    python gradio.py
     ```
     This command will launch a Gradio interface, providing an interactive web application to perform object detection and segmentation.
-
-## Additional Features
-
-
-To enhance your experience with YoloGemma, consider utilizing the following additional features:
-
-- **Download YouTube Videos:** To download YouTube videos, use the following command with the link of the video:
-    ```bash
-    YoloGemma download_video "link of video"
-    ```
 
 
 ## Acknowledgements

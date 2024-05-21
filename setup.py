@@ -23,10 +23,10 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'download=yolagemma.download_and_quantize:main',
-            'main=yolagemma.detect:main',
-            'server=yolagemma.server:main',
-            'gradio=yolagemma.server:main',
+            'download=yologemma.download_and_quantize:main',
+            'main=YoloGemma.main:main',
+            'server=yolpgemma.server:main',
+            'gradio=yologemma.server:main',
         ],
     },
     classifiers=[
