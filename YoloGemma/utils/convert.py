@@ -21,9 +21,10 @@ from YoloGemma.model import ModelArgs
 @torch.inference_mode()
 def convert_hf_checkpoint(
     *,
-    checkpoint_dir: Path = Path("checkpoints/meta-Transformer/Transformer-2-7b-chat-hf"),
+    checkpoint_dir: str = "checkpoints/meta-Transformer/Transformer-2-7b-chat-hf",
     model_name: Optional[str] = None,
 ) -> None:
+    checkpoint_dir = Path(checkpoint_dir)  # Ensure checkpoint_dir is a Path object
     if model_name is None:
         model_name = checkpoint_dir.name
 
@@ -60,8 +61,8 @@ def convert_hf_checkpoint(
 
     def permute(w, n_head):
         dim = config.dim
-        print(config.head_dim)
-        print(config.dim)
+        # print(config.head_dim)
+        # print(config.dim)
         return (
             w.view(n_head, 2, config.head_dim // 2, dim)
             .transpose(1, 2)

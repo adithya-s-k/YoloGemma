@@ -526,7 +526,7 @@ class WeightOnlyInt4Linear(torch.nn.Module):
 
 
 def quantize(
-    checkpoint_path: Path = Path("checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth"),
+    checkpoint_path: str = "checkpoints/meta-llama/Llama-2-7b-chat-hf/model.pth",
     mode: str = 'int8',
     # following arguments only available when setting int4 quantization.
     groupsize: int = 128,
@@ -539,6 +539,7 @@ def quantize(
     blocksize: int = 128,
     label: str = '',
 ) -> None:
+    checkpoint_path = Path(checkpoint_path)  # Ensure checkpoint_path is a Path object
     assert checkpoint_path.is_file(), checkpoint_path
 
     device = 'cpu'
