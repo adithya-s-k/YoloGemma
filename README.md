@@ -62,6 +62,7 @@ YoloGemma provides three main scripts to facilitate various tasks. Below are ins
 ## Acknowledgements
 
 Special thanks to [PaliGemma](https://huggingface.co/blog/paligemma) for their groundbreaking work in Vision-Language models, which serves as the foundation for this project.
+The project was inspired by this repository - [loopvlm](https://github.com/sumo43/loopvlm)
 
 ---
 
