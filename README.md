@@ -34,15 +34,8 @@ YoloGemma provides three main scripts to facilitate various tasks. Below are ins
 
 1. **Main Script for Object Detection and Segmentation:**
     ```bash
-    python main.py --task "detect" --object "Cat" --input_path path/to/input --output_path path/to/output
+    python main.py --prompt "detect small cat" --vid_path cat.mp4  --vid_start 0 --vid_end 5
     ```
-    Parameters:
-    - `--task`: Specify whether to `detect` or `segment`.
-    - `--object`: Define the object or objects you want to perform the task on.
-    - `--input_path`: Path to the input image or video.
-    - `--output_path`: Path to where the output will be saved.
-
-    Replace `path/to/input` with the path to your input image or video, and `path/to/output` with the desired output path.
 
 2. **Server Script to Run a Server:**
     ```bash
