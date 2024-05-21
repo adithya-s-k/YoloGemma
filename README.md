@@ -5,13 +5,29 @@
 ## Outputs
 
 YoloGemma generates outputs by processing images and videos to identify and segment objects within them. The results are visualized as annotated images or videos, highlighting detected objects with bounding boxes or segmentation masks.
-| Small Cat Detection | Big Cat Detection |
-|---------------------|-------------------|
-| ![Small Cat detection](./assets/output_video_small.mp4) | ![Big Cat detection](./assets/output_video_big.mp4) |
 
-| Gojo Detection | Geto Detection |
-|---------------------|-------------------|
-| ![Gojo Cat detection](./assets/output_video_gojo.mp4) | ![Geto Cat detection](./assets/output_video_short.mp4) |
+<table>
+    <tr>
+        <td>
+            Small Cat Detection:
+            <video width=100% src="./assets/output_video_small.mp4">
+        </td>
+        <td>
+            Big Cat Detection:
+            <video width=100% src="./assets/output_video_big.mp4">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Gojo Cat Detection:
+            <video width=100% src="./assets/output_video_gojo.mp4">
+        </td>
+        <td>
+            Geto Cat Detection:
+            <video width=100% src="./assets/output_video_short.mp4">
+        </td>
+    </tr>
+</table>
 
 
 ## Installation
