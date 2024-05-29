@@ -62,10 +62,10 @@ def logits_to_probs(logits, temperature: float = 1.0, top_k: Optional[int] = Non
 
 def sample(logits, temperature: float = 1.0, top_k: Optional[int] = None):
     #logits[0, -1, 1] = -10
-
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     probs = logits_to_probs(logits[0, -1], temperature, top_k)
     idx_next = multinomial_sample_one_no_sync(probs)
-    idx_next = torch.tensor([torch.argmax(logits[0, -1])]).to('cuda:0')
+    idx_next = torch.tensor([torch.argmax(logits[0, -1])]).to(device)
     return idx_next, probs
 
 def prefill(model: Transformer, x: torch.Tensor, embeds: torch.Tensor, input_pos: torch.Tensor, **sampling_kwargs) -> torch.Tensor:
@@ -351,13 +351,22 @@ def main(
     for i in range(int(fps * vid_end)):
         ret, frame = cap.read()
 
+        # if i > fps * vid_start:
+        #     if not ret:
+        #         break
+        #     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        #     pil_frame = Image.fromarray(frame)
+        #     frames.append(pil_frame)
         if i > fps * vid_start:
             if not ret:
+                print(f"Error: Failed to read frame at index {i}")
                 break
+            if frame is None:
+                print(f"Warning: Frame at index {i} is None")
+                continue
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             pil_frame = Image.fromarray(frame)
             frames.append(pil_frame)
-
     cap.release()
 
     out = cv2.VideoWriter('output_video.mp4', cv2.VideoWriter_fourcc(*'mp4v'), fps, (frame.shape[1], frame.shape[0]))
@@ -572,7 +581,7 @@ def main(
 
             draw.rectangle(bounding_boxes, outline="lime", width=3)
             text_position = (bounding_boxes[2] - 5, bounding_boxes[3] - 5)
-            draw.text(text_position, "small cat", fill="lime", font_size=30)
+            # draw.text(text_position, "small cat", fill="lime", font_size=30)
 
         frame = cv2.cvtColor(np.array(frame), cv2.COLOR_RGB2BGR)
         out.write(frame)

@@ -19,7 +19,8 @@ setup(
         "opencv-python",
         "Pillow",
         "transformers",
-        "numpy"
+        "numpy",
+        "gradio",
     ],
     entry_points={
         'console_scripts': [
