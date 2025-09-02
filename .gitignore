@@ -162,3 +162,13 @@ cython_debug/
 
 /checkpoints
 *.mp4
+
+# Claude Code settings
+.claude/*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
